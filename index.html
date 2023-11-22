@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- All metadata -->
+
+  <!-- How to import Bootstrap framework into html: -->
+  <!-- 'https://getbootstrap.com/docs/5.3/getting-started/introduction/' -->
+
+  <!-- Link element containing Bootstrap CSS stylesheet from CDN (Content Delibery Network) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- Link elemet containing Bootstrap Icons CSS stylesheet from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Meta tag for character endocing of the document -->
+  <meta charset="UTF-8">
+  <!-- Meta tag for highest compatibility with Internet Explorer -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Meta tag for viewport properties (device widths, initial zoom levels) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of Website in the Browser Tab -->
+  <title>HDDA Data Analysis</title>
+  <!-- Include external CSS stylesheet style.css -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+
+
+
+<body>
+  <!-- Div element represents header line with fluent container element from bootstrap -->
+  <!-- Reference on how containers work in bootstrap -->
+  <!-- https://getbootstrap.com/docs/5.3/layout/containers/#how-they-work -->
+  <div class="container-fluid bg-secondary py-3">
+    <!-- One row specified for the header -->
+    <!-- Reference on grid layout (class row) -->
+    <!-- https://getbootstrap.com/docs/5.3/layout/grid/#row-columns -->
+    <div class="row">
+      <!-- Text displayed in one single column -->
+      <div class="col">
+        <!-- Website header -->
+        <!-- Reference for display option (typography options) -->
+        <!-- https://getbootstrap.com/docs/4.0/content/typography/ -->
+        <!-- Reference for text utilities -->
+        <!-- https://getbootstrap.com/docs/4.0/utilities/text/ -->
+        <!-- Reference for Spacing (margin and padding) -->
+        <!-- https://getbootstrap.com/docs/4.0/utilities/spacing/ -->
+        <h1 class="display-4 text-end text-white font-weight-bold mx-5">HDDA Project Ötzi</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar bootstrap element -->
+  <!-- Reference to design navigation with a sidebar class -->
+  <!-- https://www.devwares.com/docs/contrast/javascript/navigation/sidebar/ -->
+  <div class="sidebar">
+    <!-- Navigation element inside sidebar to address different nav-links -->
+    <nav>
+      <!-- Sidebar header -->
+      <div class="sidebar-header">
+        <h3>Content</h3>
+      </div>
+
+      <!-- Sidebar content start -->
+      <!-- Class nav for navigation bar -->
+      <!-- Reference to navigation bar with tabs -->
+      <!-- https://getbootstrap.com/docs/5.0/components/navs-tabs/ -->
+      <div class="nav flex-column" id="sidebar-nav">
+        <!-- Nav link bootstrap element as first navigation element of the sidebar -->
+        <!-- Element content later on displayed via tab elements -->
+        <!-- Element inside sidebar displayed as button to click on -->
+        <!-- General Information -->
+        <a class="nav-link" id="nav-general_info-tab" data-bs-toggle="tab" data-bs-target="#nav-general_info"
+          type="button" role="tab" aria-controls="nav-general_info" aria-selected="true">General information</a>
+
+        <!-- Data and subject -->
+        <!-- Every parameter in the anchor tag referrs to the JavaScript behavior of the tab in the
+                navigation bar -->
+        <!-- https://getbootstrap.com/docs/4.0/components/navs/#javascript-behavior -->
+        <a class="nav-link" id="nav-data-tab" data-bs-toggle="tab" data-bs-target="#nav-data" type="button" role="tab"
+          aria-controls="nav-data" aria-selected="true">Project and data</a>
+
+        <!-- FastQC -->
+        <a class="nav-link" id="nav-fastqc-tab" data-bs-toggle="tab" data-bs-target="#nav-fastqc" type="button"
+          role="tab" aria-controls="nav-fastqc" aria-selected="true">FastQC</a>
+
+        <!-- MultiQC -->
+        <a class="nav-link" id="nav-multiqc-tab" data-bs-toggle="tab" data-bs-target="#nav-multiqc" type="button"
+          role="tab" aria-controls="nav-multiqc" aria-selected="true">MultiQC</a>
+
+
+        <!-- Fifth collapsable sidebar element -->
+        <!-- Taxonomic classification -->
+        <!-- Reference to collapse tabs -->
+        <!-- https://getbootstrap.com/docs/4.0/components/collapse/ -->
+        <a class="nav-link" data-bs-toggle="collapse" href="#collapse-taxonomic_classification" role="button"
+          aria-expanded="false" aria-controls="collapse-taxonomic_classification">Taxonomic classification</a>
+
+        <div class="collapse" id="collapse-taxonomic_classification">
+          <a class="nav-link" id="nav-kraken-tab" data-bs-toggle="tab" data-bs-target="#nav-kraken" type="button"
+            role="tab" aria-controls="nav-kraken" aria-selected="false">Classification with Kraken</a>
+
+          <a class="nav-link" id="nav-kaiju-tab" data-bs-toggle="tab" data-bs-target="#nav-kaiju" type="button"
+            role="tab" aria-controls="nav-kaiju" aria-selected="true">Classification with Kaiju</a>
+
+        </div>
+
+        <!-- Mapping -->
+        <a class="nav-link" id="nav-mapping-tab" data-bs-toggle="tab" data-bs-target="#nav-mapping" type="button"
+          role="tab" aria-controls="nav-mapping" aria-selected="true">Mapping</a>
+
+        <!-- Samtools -->
+        <a class="nav-link" id="nav-sam_tools-tab" data-bs-toggle="tab" data-bs-target="#nav-sam_tools" type="button"
+          role="tab" aria-controls="nav-sam_tools" aria-selected="true">Samtools</a>
+
+        <!-- Map damage -->
+        <a class="nav-link" id="nav-map_damage-tab" data-bs-toggle="tab" data-bs-target="#nav-map_damage" type="button"
+          role="tab" aria-controls="nav-map_damage" aria-selected="true">MapDamage</a>
+
+        <!-- Phylogeny -->
+        <a class="nav-link" id="nav-phylo-tab" data-bs-toggle="tab" data-bs-target="#nav-phylo" type="button" role="tab"
+          aria-controls="nav-phylo" aria-selected="true">Phylogeny</a>
+
+        <!-- Workflow -->
+        <a class="nav-link" id="nav-workflow-tab" data-bs-toggle="tab" data-bs-target="#nav-workflow" type="button"
+          role="tab" aria-controls="nav-workflow" aria-selected="true">Workflow and technical report</a>
+
+
+      </div>
+    </nav>
+  </div>
+
+  <!-- The first few content blocks are commented in detail. All the following content blocks for every sidebar tab use the same architecture. -->
+  <!-- Start of the main content right to the sidebar -->
+  <div class="main-content" style="margin-left: 20%">
+    <!-- Bootstrap element container for tab-content to display page content for every sidebar tab -->
+    <div class="tab-content" id="nav-tabContent">
+
+      <!-- Reference to "tab-pane fade" sidebar content elements to display tab content -->
+      <!-- https://getbootstrap.com/docs/4.0/components/navs/#javascript-behavior -->
+
+      <!-- tab-pane element that represents a tab panel that will fade in when activated -->
+      <div class="tab-pane fade p-3" id="nav-general_info" role="tabpanel" aria-labelledby="nav-general_info-tab">
+        <!-- XXL-Container Element for every tab content to ensure max width across the screen -->
+        <div class="container-xxl">
+          <!-- Header for every single tab content -->
+          <!-- General information -->
+          <h2 class="text-start mb-4 pb-2 border-bottom">General information</h2>
+          <!-- Conent displayed in single rows spanning the whole container width -->
+          <div class="row justify-content-start">
+            <!-- Contet column takes up the whole bootstrap grid for medium sized screens, therefore the whole content screen-->
+            <div class="col-md-12">
+              <div class="w-100">
+                <!-- Tab content text displayed in separate paragraph elements -->
+                <p class="lead my-4 text-muted">
+                  Study course: Bioinformatik & Systembiologie
+                </p>
+                <p class="lead my-4 text-muted">
+                  Module: M-BS2-S4B Hochdurchsatzdatenanalyse B
+                </p>
+                <p class="lead my-4 text-muted">
+                  Project name: HDDA Ötzi
+                </p>
+                <p class="lead my-4 text-muted">
+                  Participants: Dominik March, Rabia Ayche Serradj, Jan Michel Pfeifer
+                </p>
+                <p class="lead my-4 text-muted">
+                  Deadline: 17.09.2023 23:59
+                </p>
+                <p class="lead my-4 text-muted">
+                  Git repository:
+                  <a href="https://git.computational.bio.uni-giessen.de/rserradj/oetzi"
+                    target="_blank">https://git.computational.bio.uni-giessen.de/rserradj/oetzi</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second row with same properties -->
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <div class="text-center">
+                  <!-- Class img-fluid to ensure the picture is displayed dynamicly -->
+                  <!-- Reference for importing images into html -->
+                  <!-- https://getbootstrap.com/docs/4.0/content/images/ -->
+                  <img class="img-fluid" src="html/oetzi.png" alt="oetzi">
+                  <p>
+                    Image source: https://www.sciencenews.org/article/new-otzi-iceman-dna-ancestry-genome
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="tab-pane fade p-3" id="nav-data" role="tabpanel" aria-labelledby="nav-data-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Project and data</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Project background</h4>
+                <p class="lead my-4 text-muted">
+                <ul class="lead my-4 text-muted">
+                  <li>Next-generation sequencing was used to perform a detailed comparative
+                    analysis of the Ötzi genome in relation to genomic data of modern humans.</li>
+                  <li>In addition to human DNA, a considerable amount of bacterial sequence data was generated
+                    here, including sequences that could be assigned to Borrelia burgdorferi.
+                  </li>
+                </ul>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Hypothesis</h4>
+                <p class="lead my-4 text-muted">
+                  Based on the above background information, the following hypothesis could be
+                  formulated, which needs to be tested:
+                </p>
+                <h4 class="text-center mb-4 pb-2">Ötzi fell ill with Lyme disease.</h4>
+
+                <h4 class="text-start mb-4 pb-2">The subject Ötzi</h4>
+                <p class="lead my-4 text-muted">
+                  Name: Ötzi (also called the Iceman)
+                </p>
+                <p class="lead my-4 text-muted">
+                  Age: Approximately 5300 years old
+                </p>
+                <p class="lead my-4 text-muted">
+                  Discovery: Tisenjoch pass (Ötztal Alps) on the border between Italy and Austria in 1991
+                </p>
+                <p class="lead my-4 text-muted">
+                  Epoche: Copper Age
+                </p>
+              </div>
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Data</h4>
+                <p class="lead my-4 text-muted">
+                  Data source:
+                  <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB2830" target="_blank">Project: PRJEB2830</a>
+                </p>
+                <p class="lead my-4 text-muted">
+                  Data types: Paired-end Fastq files
+                </p>
+                <p class="lead my-4 text-muted">
+                  Data collection method: ABI_SOLiD
+                </p>
+                <p class="lead my-4 text-muted">
+                  Sample data used for the workflow (only forward reads): Run Accession Number
+                <ul class="lead my-4 text-muted">
+                  <li>ERR069107</li>
+                  <li>ERR069108</li>
+                  <li>ERR069109</li>
+                </ul>
+                </p>
+              </div>
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Literature</h4>
+                <p class="lead my-4 text-muted">
+                  Scientific paper:
+                  <a href="https://www.nature.com/articles/ncomms1701" target="_blank">New insights into the Tyrolean
+                    Iceman's origin and phenotype as inferred by whole-genome sequencing</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Next Sidebar Content Block with similar properties -->
+      <!-- FastQC Sidebar Content-->
+      <div class="tab-pane fade p-3" id="nav-fastqc" role="tabpanel" aria-labelledby="nav-fastqc-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">FastQC Reports</h2>
+
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Before Trimming</h4>
+                <!-- Reference on how to open html content in a new tab -->
+                <!-- https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/ -->
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069107_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069107_1_fastqc.html" target="_blank">ERR069107_1 FastQC Report</a>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069108_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069108_1_fastqc.html" target="_blank">ERR069108_1 FastQC Report</a>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069109_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069109_1_fastqc.html" target="_blank">ERR069109_1 FastQC Report</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 my-5 pb-2">After Trimming</h4>
+
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069107_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069107_1_trimmed_fastqc.html" target="_blank">ERR069107_1 FastQC Report</a>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069108_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069108_1_trimmed_fastqc.html" target="_blank">ERR069108_1 FastQC Report</a>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069109_1</h4>
+                <p class="lead my-4 text-muted">
+                  Link FastQC report:
+                  <a href="fastqc_reports/ERR069109_1_trimmed_fastqc.html" target="_blank">ERR069109_1 FastQC Report</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MultiQC -->
+      <div class="tab-pane fade p-3" id="nav-multiqc" role="tabpanel" aria-labelledby="nav-multiqc-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">MultiQC Reports</h2>
+
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Before Trimming</h4>
+                <p class="lead my-4 text-muted">
+                  Link MultiQC report:
+                  <a href="multiqc_reports/multiqc_report.html" target="_blank">MultiQC Report before Trimming</a>
+                </p>
+                <h4 class="text-start mb-4 pb-2">Afer Trimming</h4>
+                <p class="lead my-4 text-muted">
+                  Link MultiQC report:
+                  <a href="trimmed_multiqc_reports/multiqc_report.html" target="_blank">MultiQC Report after
+                    Trimming</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Taxonomic classification -->
+      <!-- Kraken -->
+      <div class="tab-pane fade p-3" id="nav-kraken" role="tabpanel" aria-labelledby="nav-kraken-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Taxonomic classification with Kraken</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069107_1</h4>
+                <p class="lead my-4 text-muted">
+                  <!-- Code to embed html files into this html derived from: -->
+                  <!-- https://de.w3docs.com/snippets/html/wie-kann-man-pdf-in-html-einbetten.html -->
+                  <iframe src="krona/kraken/krona_ERR069107_1.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- Link Kraken report:  
+                                    <a href="ready_files/kraken/krona/ERR069107.kraken.html" target="_blank">Kraken report</a>  -->
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069108_1</h4>
+                <p class="lead my-4 text-muted">
+                  <iframe src="krona/kraken/krona_ERR069108_1.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- Link Kraken report:  
+                                    <a href="ready_files/kraken/krona/ERR069108.kraken.html" target="_blank">Kraken report</a>  -->
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069109_1</h4>
+                <p class="lead my-4 text-muted">
+                  <iframe src="krona/kraken/krona_ERR069109_1.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- Link Kraken report:  
+                                    <a href="ready_files/kraken/krona/ERR069109.kraken.html" target="_blank">Kraken report</a>  -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kaiju -->
+      <div class="tab-pane fade p-3" id="nav-kaiju" role="tabpanel" aria-labelledby="nav-kaiju-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Taxonomic classification with Kaiju</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069107_1</h4>
+                <p class="lead my-4 text-muted">
+                  <!-- Link Kaiju report:   -->
+                  <iframe src="krona/kaiju/ERR069107_1.out.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- <a href="kaiju/kaiju_107.out.html" target="_blank">Kaiju report</a>  -->
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069108_1</h4>
+                <p class="lead my-4 text-muted">
+                  <!-- Link Kaiju report:   -->
+                  <iframe src="krona/kaiju/ERR069108_1.out.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- <a href="kaiju/kaiju_108.out.html" target="_blank">Kaiju report</a>  -->
+                </p>
+                <h4 class="text-start mb-4 pb-2">Dataset: ERR069109_1</h4>
+                <p class="lead my-4 text-muted">
+                  <!-- Link Kaiju report: -->
+                  <iframe src="krona/kaiju/ERR069109_1.out.html" width="1200" height="900" frameborder="0"
+                    allowfullscreen></iframe>
+                  <!-- <a href="kaiju/kaiju_109.out.html" target="_blank">Kaiju report</a>  -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Mapping -->
+      <div class="tab-pane fade p-3" id="nav-mapping" role="tabpanel" aria-labelledby="nav-mapping-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Mapping summary</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Mitochondrial DNA</h4>
+                <!-- Reference to table format -->
+                <!-- https://getbootstrap.com/docs/4.0/content/tables/ -->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Total reads</th>
+                      <th scope="col">Unpaired</th>
+                      <th scope="col">Aligned 0 times</th>
+                      <th scope="col">Aligned exactly 1 time</th>
+                      <th scope="col">Aligned >1 times</th>
+                      <th scope="col">Overall alignment rate</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">ERR069107_1</th>
+                      <td>201265980</td>
+                      <td>201265980 (100.00%)</td>
+                      <td>200899293 (99.82%)</td>
+                      <td>366687 (0.18%)</td>
+                      <td>0 (0.00%)</td>
+                      <td>0.18%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">ERR069108_1</th>
+                      <td>266516391</td>
+                      <td>266516391 (100.00%)</td>
+                      <td>265938016 (99.78%)</td>
+                      <td>578375 (0.22%)</td>
+                      <td>0 (0.00%)</td>
+                      <td>0.22%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">ERR069109_1</th>
+                      <td>189891947</td>
+                      <td>189891947 (100.00%)</td>
+                      <td>189583569 (99.84%)</td>
+                      <td>308378 (0.16%)</td>
+                      <td>0 (0.00%)</td>
+                      <td>0.16%</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Samtools -->
+      <div class="tab-pane fade p-3" id="nav-sam_tools" role="tabpanel" aria-labelledby="nav-sam_tools-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Samtools statistics</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Samtools summary statistics</h4>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Parameter</th>
+                      <th scope="col">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>raw total sequences:</td>
+                      <td>657674318</td>
+                    </tr>
+                    <tr>
+                      <td>filtered sequences:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>sequences:</td>
+                      <td>657674318</td>
+                    </tr>
+                    <tr>
+                      <td>is sorted:</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>1st fragments:</td>
+                      <td>657674318</td>
+                    </tr>
+                    <tr>
+                      <td>last fragments:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>reads mapped:</td>
+                      <td>1253440</td>
+                    </tr>
+                    <tr>
+                      <td>reads mapped and paired:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>reads unmapped:</td>
+                      <td>656420878</td>
+                    </tr>
+                    <tr>
+                      <td>reads properly paired:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>reads paired:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>reads duplicated:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>reads MQ0:</td>
+                      <td>38327</td>
+                    </tr>
+                    <tr>
+                      <td>reads QC failed:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>non-primary alignments:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>supplementary alignments:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>total length:</td>
+                      <td>29163274104</td>
+                    </tr>
+                    <tr>
+                      <td>total first fragment length:</td>
+                      <td>29163274104</td>
+                    </tr>
+                    <tr>
+                      <td>total last fragment length:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>bases mapped:</td>
+                      <td>57457169</td>
+                    </tr>
+                    <tr>
+                      <td>bases mapped (cigar):</td>
+                      <td>57457169</td>
+                    </tr>
+                    <tr>
+                      <td>bases trimmed:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>bases duplicated:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>mismatches:</td>
+                      <td>710315</td>
+                    </tr>
+                    <tr>
+                      <td>error rate:</td>
+                      <td>1.236251e-02</td>
+                    </tr>
+                    <tr>
+                      <td>average length:</td>
+                      <td>44</td>
+                    </tr>
+                    <tr>
+                      <td>average first fragment length:</td>
+                      <td>44</td>
+                    </tr>
+                    <tr>
+                      <td>average last fragment length:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>maximum length:</td>
+                      <td>50</td>
+                    </tr>
+                    <tr>
+                      <td>maximum first fragment length:</td>
+                      <td>50</td>
+                    </tr>
+                    <tr>
+                      <td>maximum last fragment length:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>average quality:</td>
+                      <td>33.6</td>
+                    </tr>
+                    <tr>
+                      <td>insert size average:</td>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <td>insert size standard deviation:</td>
+                      <td>0.0</td>
+                    </tr>
+                    <tr>
+                      <td>inward oriented pairs:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>outward oriented pairs:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>pairs with other orientation:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>pairs on different chromosomes:</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>percentage of properly paired reads (%):</td>
+                      <td>0.0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Map damage -->
+      <div class="tab-pane fade p-3" id="nav-map_damage" role="tabpanel" aria-labelledby="nav-map_damage-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">MapDamage results</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="w-100">
+                <!-- Reference for embedding pdf files into html -->
+                <!-- https://www.geeksforgeeks.org/how-to-embed-pdf-file-using-html/ -->
+
+                <h4 class="text-start mb-4 pb-2">Length plot</h4>
+                <p class="lead my-4 text-muted">
+                  Length distribution of singleton reads per strand and cumulative frequencies of C->T at 5'-end and
+                  G->A at 3'-end are also displayed per strand.
+                </p>
+                <div class="d-flex justify-content-center">
+                  <embed src="mapDamage/results_mtdna/Length_plot.pdf" width="850" height="900" type="application/pdf">
+                </div>
+
+                <h4 class="text-start mb-4 my-5 pb-2">Fragmentation and misincorporation patterns</h4>
+                <p class="lead my-4 text-muted">
+                  Plot displaying both fragmentation and misincorporation patterns.
+                </p>
+                <div class="d-flex justify-content-center">
+                  <embed src="mapDamage/results_mtdna/Fragmisincorporation_plot.pdf" width="850" height="900"
+                    type="application/pdf">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+      <!-- Phylogeny-->
+      <div class="tab-pane fade p-3" id="nav-phylo" role="tabpanel" aria-labelledby="nav-phylo-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Phylogeny</h2>
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <p class="lead text-muted">
+                  ID of reconstructed mtDNA: NC_012920.1
+                </p>
+                <p class="lead text-muted">
+                  Identified haplogroup of the reconstructed mtDNA: K1f
+                </p>
+                <h4 class="text-start mb-4 pb-2">Phylogenetic tree</h4>
+                <img class="img-fluid" src="phylo/results/phylo_tree.png" alt="oetzi">
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">5 closest samples on phylogenetic tree</h4>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Epoch</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Year from (calBCE)</th>
+                      <th scope="col">Year to (calBCE)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Iceman</th>
+                      <td>Copper Age</td>
+                      <td>Italy</td>
+                      <td>3484</td>
+                      <td>3104</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX209</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX210</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX204</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I5117</th>
+                      <td>Copper Age</td>
+                      <td>Hungary</td>
+                      <td>3400</td>
+                      <td>3000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-12 text-center">
+              <div class="w-100">
+                <h4 class="text-start mb-4 pb-2">Regions of 5 closest samples</h4>
+                <embed src="html/amt.pdf" width="850" height="650" type="application/pdf">
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-start">
+            <div class="col-md-12">
+              <div class="w-100">
+                <h4 class="text-start mb-4 my-5 pb-2">Comparison with reconstructed mtDNA: NC_012920.1</h4>
+                <p class="lead my-4 text-muted">
+                  Compared with the following sequences from database:
+                  <a href="https://amtdb.org/" target="_blank">AmtDB</a>
+                </p>
+                <p>
+                  <!-- Code derived from: https://getbootstrap.com/docs/5.3/content/tables/ -->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Epoch</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">Year from (calBCE)</th>
+                      <th scope="col">Year to (calBCE)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">I2405</th>
+                      <td>Bronze Age</td>
+                      <td>Poland</td>
+                      <td>3335</td>
+                      <td>3020</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2803</th>
+                      <td>Neolithic</td>
+                      <td>Poland</td>
+                      <td>3400</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2801</th>
+                      <td>Neolithic</td>
+                      <td>Poland</td>
+                      <td>3400</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2441</th>
+                      <td>Bronze Age</td>
+                      <td>Poland</td>
+                      <td>3400</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2434</th>
+                      <td>Bronze Age</td>
+                      <td>Poland</td>
+                      <td>3400</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2301</th>
+                      <td>Neolithic</td>
+                      <td>Poland</td>
+                      <td>3400</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">arm40</th>
+                      <td>Bronze Age</td>
+                      <td>Armenia</td>
+                      <td>3449</td>
+                      <td>33091</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">arm42</th>
+                      <td>Bronze Age</td>
+                      <td>Armenia</td>
+                      <td>3500</td>
+                      <td>3200</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Val05</th>
+                      <td>Neolithic</td>
+                      <td>Spain</td>
+                      <td>3480</td>
+                      <td>3030</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Kretunosa2</th>
+                      <td>Neolithic</td>
+                      <td>Lithuania</td>
+                      <td>5500</td>
+                      <td>2900</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Kretunosa4</th>
+                      <td>Neolithic</td>
+                      <td>Lithuania</td>
+                      <td>5500</td>
+                      <td>2900</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX150</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3244</td>
+                      <td>3102</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX212</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3323</td>
+                      <td>2581</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">RA43</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3330</td>
+                      <td>3216</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX219</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3330</td>
+                      <td>3216</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX187</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3337</td>
+                      <td>2908</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX182</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3338</td>
+                      <td>3031</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">RA42</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3340</td>
+                      <td>3097</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX183</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3344</td>
+                      <td>3037</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX213</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3363</td>
+                      <td>2930</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX210</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX209</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX204</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX203</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">MX184</th>
+                      <td>Neolithic</td>
+                      <td>Switzerland</td>
+                      <td>3400</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I4308</th>
+                      <td>Neolithic</td>
+                      <td>France</td>
+                      <td>3501</td>
+                      <td>3112</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">LU657</th>
+                      <td>Copper Age</td>
+                      <td>Spain</td>
+                      <td>3500</td>
+                      <td>1700</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Rebolal</th>
+                      <td>Copper Age</td>
+                      <td>Spain</td>
+                      <td>3500</td>
+                      <td>3181</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Iceman</th>
+                      <td>Copper Age</td>
+                      <td>Italy</td>
+                      <td>3484</td>
+                      <td>3104</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I0551</th>
+                      <td>Neolithic</td>
+                      <td>Germany</td>
+                      <td>3400</td>
+                      <td>3025</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I0552</th>
+                      <td>Neolithic</td>
+                      <td>Germany</td>
+                      <td>3400</td>
+                      <td>3025</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I0802</th>
+                      <td>Neolithic</td>
+                      <td>Germany</td>
+                      <td>3400</td>
+                      <td>3025</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I5116</th>
+                      <td>Copper Age</td>
+                      <td>Hungary</td>
+                      <td>3400</td>
+                      <td>3000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I5117</th>
+                      <td>Copper Age</td>
+                      <td>Hungary</td>
+                      <td>3400</td>
+                      <td>3000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I5118</th>
+                      <td>Copper Age</td>
+                      <td>Hungary</td>
+                      <td>3400</td>
+                      <td>3000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I5119</th>
+                      <td>Copper Age</td>
+                      <td>Hungary</td>
+                      <td>3400</td>
+                      <td>3000</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I7554</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3366</td>
+                      <td>3103</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I7554</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3366</td>
+                      <td>3103</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I0518</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3360</td>
+                      <td>3100</td>
+                    </tr>
+                    <tr>
+                      <th datascope="row">I0519</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3360</td>
+                      <td>3100</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I0520</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3360</td>
+                      <td>3100</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2651</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3360</td>
+                      <td>3098</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">I2980</th>
+                      <td>Neolithic</td>
+                      <td>Great Britain</td>
+                      <td>3360</td>
+                      <td>3101</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="tab-pane fade p-3" id="nav-workflow" role="tabpanel" aria-labelledby="nav-workflow-tab">
+        <div class="container-xxl">
+          <h2 class="text-start mb-4 pb-2 border-bottom">Workflow and technical report</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="w-100">
+
+                <h4 class="text-start mb-4 pb-2">Workflow</h4>
+                <p class="lead my-4 text-muted">
+                  All the tools needed for the workflow of the project and their dependencies on each other are shown in
+                  the following plot: </p>
+                <div class="d-flex justify-content-center">
+                  <img class="img-fluid" src="html/report.png" alt="report">
+                </div>
+                <p class="lead my-4 text-muted">
+                  Steps of the workflow and tools used in the workflow:
+                <ul class="lead my-4 text-muted">
+                  <li>Quality control (FastQC & MultiQC)</li>
+                  <li>Trimming (Trim Galore)</li>
+                  <li>Mapping (bowtie2)</li>
+                  <li>SAM to BAM and BAM-Index (samtools)</li>
+                  <li>Reconstruction of mitochondrial DNA (samtools)</li>
+                  <li>Annotation of reconstructed mtDNA (prokka)</li>
+                  <li>Identification of the 5'/3' substitution rates (MapDamage)</li>
+                  <li>Identification of haplogroups (haplogrep)</li>
+                  <li>Multiple sequence alignment against references of AmtDB (Clustal Omega)</li>
+                  <li>Phylogenetic tree (Biopython)</li>
+                </ul>
+                </p>
+
+                <h4 class="text-start mb-4 pb-2">Technical report</h4>
+                <p class="lead my-4 text-muted">
+                  All runtimes of the workflow tools shown in the upper plot:
+                </p>
+                <div class="d-flex justify-content-center">
+                  <img class="img-fluid" src="html/visualization.png" alt="report">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script tag includes external JavaScript file script.js -->
+  <script src="script.js"></script>
+
+  <!-- Script tag includes Bootstrap JavaScript library -->
+  <!-- Reference for importing all necessary JavaScript parts for bootstrap elements -->
+  <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+
+
+</body>
+
+</html>

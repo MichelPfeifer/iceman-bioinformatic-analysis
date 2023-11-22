@@ -1,0 +1,7 @@
+---
+samples_dir: "data/"
+burgdorferi_ref: "ref_genome/ref_genome_burgdorferi.fa"
+mtdna_ref: "ref_geome/ref_genome_human_mitochndria.fa"
+kraken_db: "/vol/biodb/local_databases/MGX/kraken2/current"
+kaiju_db: "/vol/biodb/local_databases/MGX/kaiju/current"
+threads: 6
